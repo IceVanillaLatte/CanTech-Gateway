@@ -44,7 +44,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: ./gradlew build sonar --info -Dspring.profiles.active=
+        run: ./gradlew build sonar --info -Dspring.profiles.active=test
 
       - name: 🐳 Docker 이미지 빌드
         run: |
