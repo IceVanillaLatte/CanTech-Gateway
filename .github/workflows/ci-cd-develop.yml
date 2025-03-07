@@ -34,6 +34,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
+      - name: Check environment variables
+        run: echo "SPRING_PROFILES_ACTIVE=$SPRING_PROFILES_ACTIVE"
+
       - name: Build with Gradle
         run: ./gradlew build -Dspring.profiles.active=test
 
