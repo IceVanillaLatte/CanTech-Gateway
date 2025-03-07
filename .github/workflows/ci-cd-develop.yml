@@ -38,7 +38,7 @@ jobs:
         run: echo "SPRING_PROFILES_ACTIVE=$SPRING_PROFILES_ACTIVE"
 
       - name: Build with Gradle
-        run: ./gradlew build -DSPRING_PROFILES_ACTIVE=test --info
+        run: SPRING_PROFILES_ACTIVE=test ./gradlew build
 
       - name: Run tests
         run: ./gradlew test -DSPRING_PROFILES_ACTIVE=test --info
