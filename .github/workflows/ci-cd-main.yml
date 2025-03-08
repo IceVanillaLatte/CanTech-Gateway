@@ -76,4 +76,7 @@ jobs:
           docker stop gateway-service || true
           docker rm gateway-service || true
           docker pull ${{ secrets.DOCKER_USERNAME }}/cantech:${{ github.sha }}
-          docker run -d --name gateway-service -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/cantech:${{ github.sha }}
+          docker run -d --name gateway-service -p 8080:8080 \
+          -e SPRING_PROFILES_ACTIVE=prod \
+          -e CONFIG_SERVER_URL="${{ secrets.CONFIG_SERVER_URL }}" \
+          ${{ secrets.DOCKER_USERNAME }}/cantech:${{ github.sha }}
